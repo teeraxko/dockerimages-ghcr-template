@@ -4,7 +4,10 @@ on:
 jobs:
   build_and_publish:
     runs-on: ubuntu-latest
-    steps: |
-      docker login --username teeraxko --password ${{secrets.GH_PAT}} ghcr.io
-      docker build . --tag ghcr.io/teeraxko/hello-world-ghcr:latest
-      docker push ghcr.io/teeraxko/hello-world-ghcr:latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Build and push the image
+        run:  |
+          docker login --username teeraxko --password ${{secrets.GH_PAT}} ghcr.io
+          docker build . --tag ghcr.io/teeraxko/hello-world-ghcr:latest
+          docker push ghcr.io/teeraxko/hello-world-ghcr:latest
