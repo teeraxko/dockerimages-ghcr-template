@@ -1,2 +1,2 @@
 #!/bin/sh
-echo "Hello from Entrypoint!"
+echo "Hello from Entrypoint!  test"
