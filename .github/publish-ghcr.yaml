@@ -1,0 +1,12 @@
+name: Docker Image CI for GHCR
+
+on: 
+  push
+
+jobs:
+  build_and_publish:
+    runs-on: ubuntu-latest
+    steps: |
+      docker login --username teeraxko --password ${{secrets.GH_PAT}} ghcr.io
+      docker build . --tag ghcr.io/teeraxko/hello-world-ghcr:latest
+      docker push ghcr.io/teeraxko/hello-world-ghcr:latest
