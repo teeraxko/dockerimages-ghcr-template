@@ -14,3 +14,4 @@ RUN chmod +x entrypoint.sh
 
 # Set the shell script as the entry point
 ENTRYPOINT [ "/app/entrypoint.sh" ]
+
